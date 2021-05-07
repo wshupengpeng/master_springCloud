@@ -3,4 +3,43 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+    <servlet>
+        <servlet-name>firstController</servlet-name>
+        <servlet-class>com.order.controller.OrderController</servlet-class>
+        <!-- 此设置当值不为负数时，则表示在web应用部署时即加载此servlet
+            servlet 的生命周期是在第一次请求打到对应servlet时初始化。
+         -->
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>firstController</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+
+    <listener>
+        <listener-class>com.order.listener.MyRequestAttributeListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>com.order.listener.MySessionAttributeListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>com.order.listener.MyServletContextAttibuteListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>com.order.listener.MyRequestListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>com.order.listener.MySessionListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>com.order.listener.MyServletContextListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>com.order.listener.MySessionBingdingListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>com.order.listener.MySessionActivationListener</listener-class>
+    </listener>
 </web-app>
